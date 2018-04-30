@@ -6,13 +6,11 @@
 /*   By: cfavero <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 18:39:30 by cfavero           #+#    #+#             */
-/*   Updated: 2018/04/27 16:47:10 by cfavero          ###   ########.fr       */
+/*   Updated: 2018/04/28 19:22:57 by cfavero          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// checks that the numbers are differents
 
 int		ft_errors(t_lst *a, int len)
 {
@@ -52,11 +50,10 @@ int		ft_are_int(int ac, char **av)
 	int k;
 
 	i = 1;
-	(void)av;
 	while (i < ac)
 	{
 		k = 0;
-		if (av[i][k] == '-')
+		if (av[i][k + 1] && av[i][k] == '-' && ft_isdigit(av[i][k + 1]))
 			k++;
 		while (ft_isdigit(av[i][k]) || av[i][k] == ' ' || (av[i][k] == '-' &&
 				av[i][k - 1] == ' ' && ft_isdigit(av[i][k + 1])))
@@ -72,9 +69,9 @@ int		ft_are_int(int ac, char **av)
 	return (0);
 }
 
-int		ft_take_com(char *com, t_all *data)
+/*int		ft_take_com(char *com, t_all *data)
 {
-	while (get_next_line(0, &com))
+	while (get_next_line(1, &com) == 1)
 	{
 		if (ft_strequ("sa", com) == 1)
 			SA;
@@ -100,7 +97,32 @@ int		ft_take_com(char *com, t_all *data)
 			RRR;
 		else
 			return (-1);
+		//ft_printf("\n");
+		//ft_print_stack(data->lst_a);
 	}
+	return (0);
+}*/
+int			ft_take_com(char *com, t_all *data)
+{
+	char	**tab;
+	int		y;
+
+	tab = ft_strsplit("sa sb ss pa pb ra rb rr rra rrb rrr", ' '); 
+	while (get_next_line_mathi(0, &com) > 0)
+	{
+		y = 0;
+		while (tab[y])
+		{
+			if (ft_strequ(tab[y], com) == 1)
+				break;
+			y++;
+		}
+		data->tab_f[y].f(&data->lst_a, &data->lst_b);
+		//ft_print_stack(data->lst_a);
+		//ft_printf("%d\n", y);
+	}
+	//ft_printf("----%s\n%d\n", com, get_next_line(0, &com));
+	ft_print_stack(data->lst_a);
 	return (0);
 }
 
@@ -110,10 +132,9 @@ int			ft_checker(int ac, char **av, t_all *data)
 	char	*com;
 
 	i = 0;
-	(void)av;
 	if (!(data->lst_a))
 		return (0);
-	if ((ft_are_int(ac, av)) == 1 || ft_errors(data->lst_a, ac) == -1)
+	if (ft_errors(data->lst_a, ft_lstlen(data->lst_a)) == -1)
 	{
 		ft_printf("Error\n");
 		return (-1);
@@ -123,7 +144,7 @@ int			ft_checker(int ac, char **av, t_all *data)
 		ft_printf("Error\n");
 		return (-1);
 	}
-	if (ft_are_sorted_a(data->lst_a) && (data->lst_b == NULL))
+	if (ft_are_sorted_a_exval(data->lst_a) == 0 && (data->lst_b == NULL))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");

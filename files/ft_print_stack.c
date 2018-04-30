@@ -21,22 +21,24 @@ void	ft_print_stack(t_lst *lst)
 	tmp = lst->prev;
 	while (lst != tmp)
 	{
-		ft_printf("%d\n", (lst)->val);
+		ft_printf("%d\n", (lst)->exval);
 		(lst) = (lst)->next;
 	}
 	if (tmp)
-		ft_printf("%d\n-----\n", (lst)->val);
+		ft_printf("%d\n------\n", (lst)->exval);
 }
 
-/*void	ft_print_add(t_lst *lst)
+void	ft_print_moves(t_moves *lst)
 {
-	t_lst *tmp;
+	t_moves *tmp;
 
-	tmp = lst->prev;
-	while (lst != tmp)
+	tmp = lst;
+	if (!(tmp))
+		return ;
+	while (tmp->next)
 	{
-		ft_printf("%p\n%p\n%p\n\n", lst->prev, lst, lst->next);
-		lst = lst->next;
+		ft_putstr(tmp->move);
+		tmp = tmp->next;
 	}
-	ft_printf("%p\n%p\n%p\n\n", lst->prev, lst, lst->next);
-}*/
+	ft_putstr(tmp->move);
+}

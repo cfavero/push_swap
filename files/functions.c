@@ -77,27 +77,11 @@ int			ft_find_middle(t_lst *lst, int k, int len)
 		if (more - less == 0 || (len % 2 == 1 && more - less == 1))
 			return (val);
 	}
+	free(arr);
 	return (val);
 }
 
-/*int			ft_are_sorted_b(t_lst *lst)
-{
-	t_lst	*tmp;
-
-	tmp = lst->prev;
-	while (lst != tmp)
-	{
-		if (lst->val > lst->next->val)
-			lst = lst->next;
-		else
-			return (1);
-	}
-	if (lst->val > lst->prev->val)
-		return (1);
-	return (0);
-}*/
-
-int			ft_are_sorted_a(t_lst *lst)
+int			ft_are_sorted_a_val(t_lst *lst)
 {
 	t_lst	*tmp;
 
@@ -109,7 +93,23 @@ int			ft_are_sorted_a(t_lst *lst)
 		else
 			return (1);
 	}
-//	if (lst->val != (lst->next->val + 1))
-//		return (1);
+	return (0);
+}
+
+int			ft_are_sorted_a_exval(t_lst *lst)
+{
+	t_lst	*tmp;
+
+	if (lst->prev)
+		tmp = lst->prev;
+	else
+		return (0);
+	while (lst != tmp)
+	{
+		if (lst->exval < (lst->next->exval))
+			lst = lst->next;
+		else
+			return (1);
+	}
 	return (0);
 }

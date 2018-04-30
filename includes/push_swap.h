@@ -15,8 +15,6 @@
 # include "../printf/libft/libft.h"
 # include "../printf/ft_printf.h"
 # define SA data->tab_f[0].f(&data->lst_a, &data->lst_b)
-# define ST data->tab_f[0].f(&tmp, &data->lst_b)
-# define RT data->tab_f[5].f(&tmp, &data->lst_b)
 # define SB data->tab_f[1].f(&data->lst_a, &data->lst_b)
 # define SS data->tab_f[2].f(&data->lst_a, &data->lst_b)
 # define PA data->tab_f[3].f(&data->lst_a, &data->lst_b)
@@ -28,15 +26,12 @@
 # define RRB data->tab_f[9].f(&data->lst_a, &data->lst_b)
 # define RRR data->tab_f[10].f(&data->lst_a, &data->lst_b)
 # define AA data->lst_a->val
-# define TA tmp->val
 # define AB data->lst_a->next->val
 # define AC data->lst_a->next->next->val
-# define TB tmp->next->val
 # define AZ data->lst_a->prev->val
 # define BA data->lst_b->val
 # define BB data->lst_b->next->val
 # define BZ data->lst_b->prev->val
-# define AZZ data->lst_a->prev->prev->val
 
 typedef struct		s_lst
 {
@@ -52,6 +47,12 @@ typedef struct		s_grp
 	struct s_grp	*next;
 }					t_grp;
 
+typedef struct		s_moves
+{
+	char			*move;
+	struct s_moves	*next;
+}					t_moves;
+
 typedef struct		s_tab
 {
 	char			*str;
@@ -62,31 +63,30 @@ typedef struct		s_all
 {
 	t_lst			*lst_a;
 	t_lst			*lst_b;
+	t_moves			*lst_move;
 	t_tab			*tab_f;
 }					t_all;
 
+int					ft_take_com(char *com, t_all *data);
+void				ft_print_moves(t_moves *lst);
+void				ft_lstadd_end(t_moves **alst, t_moves *new, char *s);
 int					loop_spot(t_lst *tmp, int sv);
 t_lst				*change_lst(t_lst *a);
 t_grp				*ft_first_push(t_all **data, int elem_lst_a, t_grp *lst);
 int					ft_quicksort(t_all *data);
 int					ft_move_on_b(t_all *data, int middle, int max, int elem);
 int					ft_move_on_a(t_all *data, int middle, int *max);
-int					ft_find_place(t_lst *lst);
 int					ft_lstlen(t_lst *lst);
-int					ft_sorting_alg(t_all *data, int ac);
 int					ft_find_middle(t_lst *lst, int k, int len);
-int					ft_are_sorted_a(t_lst *lst);
-int					ft_are_sorted_b(t_lst *lst);
+int					ft_are_sorted_a_exval(t_lst *lst);
+int					ft_are_sorted_a_val(t_lst *lst);
 int					ft_errors(t_lst *a, int len);
 int					ft_are_int(int ac, char **av);
 int					ft_checker(int ac, char **av, t_all *data);
 int					ft_solve_a(t_all *data);
-int					ft_try_a(t_all *data, int half);
-int					ft_solve_b(t_all *data);
 int					ft_sort(t_all *data);
 int					ft_fill(int ac, char **av, t_all **data);
 void				ft_print_stack(t_lst *lst);
-void				ft_print_add(t_lst *lst);
 int					ft_create_list(t_lst **lst, t_lst *temp);
 int					ft_get_list(int ac, char **av, t_lst **lst);
 int					ft_s_a(t_lst **a, t_lst **b);

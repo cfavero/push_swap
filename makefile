@@ -6,7 +6,7 @@
 #    By: cfavero <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 15:32:33 by cfavero           #+#    #+#              #
-#    Updated: 2018/04/26 16:21:20 by cfavero          ###   ########.fr        #
+#    Updated: 2018/04/28 17:05:25 by cfavero          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,20 +25,21 @@ C-SOURCES = files/ft_get_list.c\
 			moves/ft_push.c\
 			moves/ft_rotate.c\
 			moves/ft_swap.c\
+			files/lst_moves.c
 
 P-SOURCES = files/ft_get_list.c\
 			files/ft_print_stack.c \
 			push/push_swap.c\
 			checks/ft_checker.c \
 			files/functions.c \
-			push/ft_sorting_alg.c \
 			moves/ft_reverse.c\
 			moves/ft_push.c\
 			moves/ft_rotate.c\
 			moves/ft_swap.c\
 			push/main_push_swap.c\
 			push/algorithm.c\
-
+			files/lst_moves.c
+			
 all: $(NAME)
 
 $(NAME):

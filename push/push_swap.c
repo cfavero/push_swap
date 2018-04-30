@@ -12,37 +12,37 @@
 
 #include "push_swap.h"
 
-// we use it
-
 int		ft_solve_a(t_all *data)
 {
 	int	moves;
 
 	moves = 0;
-	while (ft_are_sorted_a(data->lst_a) == 1)
+	while (ft_are_sorted_a_val(data->lst_a) == 1)
 	{
 		if (AA > AB )
 		{
 			SA;
-			ft_printf("sa\n");
+			ft_lstadd_end(&data->lst_move, NULL, "sa\n");
+			//write(1, "sa\n", 3);
 		}
 		else
 		{
 			RA;
-			ft_printf("ra\n");
+			ft_lstadd_end(&data->lst_move, NULL, "ra\n");
+			//write(1, "ra\n", 3);
 			if (AA > AB )
 			{
 				SA;
-				ft_printf("sa\n");
+				ft_lstadd_end(&data->lst_move, NULL, "sa\n");
+				//write(1, "sa\n", 3);
 			}
 			RRA;
-			ft_printf("rra\n");
+			ft_lstadd_end(&data->lst_move, NULL, "rra\n");
+			//write(1, "rra\n", 4);
 		}
 	}
 	return (0);
 }
-
-// we use it
 
 int		ft_move_on_a(t_all *data, int middle, int *max)
 {
@@ -56,13 +56,15 @@ int		ft_move_on_a(t_all *data, int middle, int *max)
 		if (BA > middle)
 		{
 			PA;
-			ft_printf("pa\n");
+			ft_lstadd_end(&data->lst_move, NULL, "pa\n");
+			//write(1, "pa\n", 3);
 			moves++;
 		}
 		else
 		{
 			RB;
-			ft_printf("rb\n");
+			ft_lstadd_end(&data->lst_move, NULL, "rb\n");
+			//write(1, "rb\n", 3);
 			back++;
 		}
 	}
@@ -70,12 +72,11 @@ int		ft_move_on_a(t_all *data, int middle, int *max)
 	while (back--)
 	{
 		RRB;
-		ft_printf("rrb\n");
+		ft_lstadd_end(&data->lst_move, NULL, "rrb\n");
+		//write(1, "rrb\n", 4);
 	}
 	return (moves);
 }
-
-// we use it
 
 int		ft_move_on_b(t_all *data, int middle, int max, int elem)
 {
@@ -89,20 +90,23 @@ int		ft_move_on_b(t_all *data, int middle, int max, int elem)
 		if (AA <= middle)
 		{
 			PB;
-			ft_printf("pb\n");
+			ft_lstadd_end(&data->lst_move, NULL, "pb\n");
+			//write(1, "pb\n", 3);
 			moves++;
 		}
 			else
 		{
 			RA;
-			ft_printf("ra\n");
+			ft_lstadd_end(&data->lst_move, NULL, "ra\n");
+			//write(1, "ra\n", 3);
 			back++;
 		}
 	}
 	while (back--)
 	{
 		RRA;
-		ft_printf("rra\n");
+		ft_lstadd_end(&data->lst_move, NULL, "rra\n");
+		//write(1, "rra\n", 4);
 	}
 	return (moves);
 }

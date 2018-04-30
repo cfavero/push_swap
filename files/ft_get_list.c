@@ -6,10 +6,9 @@
 /*   By: cfavero <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 17:16:18 by cfavero           #+#    #+#             */
-/*   Updated: 2018/04/27 16:44:37 by cfavero          ###   ########.fr       */
+/*   Updated: 2018/04/28 16:53:50 by cfavero          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 int					ft_create_list(t_lst **lst, t_lst *temp)
@@ -42,6 +41,7 @@ int					ft_fill(int ac, char **av, t_all **data)
 		return (-1);
 	(*data)->lst_a = NULL;
 	(*data)->lst_b = NULL;
+	(*data)->lst_move = NULL;
 	(*data)->tab_f = f;
 	if (!(ft_get_list(ac, av, &((*data)->lst_a))))
 		return (-1);
@@ -63,6 +63,24 @@ static int			ft_list(t_lst **lst, int nb)
 	return (1);
 }
 
+static void			ft_deltab(char **tab)
+{
+    int y;
+ 
+    y = 0;
+    if (tab)
+    {
+        while (tab[y])
+        {
+            free(tab[y]);
+            tab[y] = NULL;
+            y++;
+        }
+        free(tab);
+        tab = NULL;
+    }
+}
+
 int					ft_get_list(int ac, char **av, t_lst **lst_a)
 {
 	int				i;
@@ -77,7 +95,7 @@ int					ft_get_list(int ac, char **av, t_lst **lst_a)
 		while (tab[j])
 			if (!(ft_list(lst_a, ft_atoi(tab[j++]))))
 				return (-1);
-		free(tab);
+		ft_deltab(tab);
 		i++;
 	}
 	return (1);
