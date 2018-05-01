@@ -22,23 +22,27 @@ int		ft_solve_a(t_all *data)
 		if (AA > AB )
 		{
 			SA;
-			ft_lstadd_end(&data->lst_move, NULL, "sa\n");
-			//write(1, "sa\n", 3);
+			ft_lstadd_end(&data->lst_move, NULL, ft_strdup("sa\n"));
+			// ft_print_stack(data->lst_a);
+			write(1, "sa\n", 3);
 		}
 		else
 		{
 			RA;
-			ft_lstadd_end(&data->lst_move, NULL, "ra\n");
-			//write(1, "ra\n", 3);
+			ft_lstadd_end(&data->lst_move, NULL, ft_strdup("ra\n"));
+			// ft_print_stack(data->lst_a);
+			write(1, "ra\n", 3);
 			if (AA > AB )
 			{
 				SA;
-				ft_lstadd_end(&data->lst_move, NULL, "sa\n");
-				//write(1, "sa\n", 3);
+				ft_lstadd_end(&data->lst_move, NULL, ft_strdup("sa\n"));
+				// ft_print_stack(data->lst_a);
+				write(1, "sa\n", 3);
 			}
 			RRA;
-			ft_lstadd_end(&data->lst_move, NULL, "rra\n");
-			//write(1, "rra\n", 4);
+			ft_lstadd_end(&data->lst_move, NULL, ft_strdup("rra\n"));
+			// ft_print_stack(data->lst_a);
+			write(1, "rra\n", 4);
 		}
 	}
 	return (0);
@@ -56,15 +60,17 @@ int		ft_move_on_a(t_all *data, int middle, int *max)
 		if (BA > middle)
 		{
 			PA;
-			ft_lstadd_end(&data->lst_move, NULL, "pa\n");
-			//write(1, "pa\n", 3);
+			ft_lstadd_end(&data->lst_move, NULL, ft_strdup("pa\n"));
+			// ft_print_stack(data->lst_a);
+			write(1, "pa\n", 3);
 			moves++;
 		}
 		else
 		{
 			RB;
-			ft_lstadd_end(&data->lst_move, NULL, "rb\n");
-			//write(1, "rb\n", 3);
+			ft_lstadd_end(&data->lst_move, NULL, ft_strdup("rb\n"));
+			// ft_print_stack(data->lst_a);
+			write(1, "rb\n", 3);
 			back++;
 		}
 	}
@@ -72,8 +78,9 @@ int		ft_move_on_a(t_all *data, int middle, int *max)
 	while (back--)
 	{
 		RRB;
-		ft_lstadd_end(&data->lst_move, NULL, "rrb\n");
-		//write(1, "rrb\n", 4);
+		ft_lstadd_end(&data->lst_move, NULL, ft_strdup("rrb\n"));
+		// ft_print_stack(data->lst_a);
+		write(1, "rrb\n", 4);
 	}
 	return (moves);
 }
@@ -90,23 +97,26 @@ int		ft_move_on_b(t_all *data, int middle, int max, int elem)
 		if (AA <= middle)
 		{
 			PB;
-			ft_lstadd_end(&data->lst_move, NULL, "pb\n");
-			//write(1, "pb\n", 3);
+			ft_lstadd_end(&data->lst_move, NULL, ft_strdup("pb\n"));
+			// ft_print_stack(data->lst_a);
+			write(1, "pb\n", 3);
 			moves++;
 		}
 			else
 		{
 			RA;
-			ft_lstadd_end(&data->lst_move, NULL, "ra\n");
-			//write(1, "ra\n", 3);
+			ft_lstadd_end(&data->lst_move, NULL, ft_strdup("ra\n"));
+			// ft_print_stack(data->lst_a);
+			write(1, "ra\n", 3);
 			back++;
 		}
 	}
 	while (back--)
 	{
 		RRA;
-		ft_lstadd_end(&data->lst_move, NULL, "rra\n");
-		//write(1, "rra\n", 4);
+		ft_lstadd_end(&data->lst_move, NULL, ft_strdup("rra\n"));
+		// ft_print_stack(data->lst_a);
+		write(1, "rra\n", 4);
 	}
 	return (moves);
 }

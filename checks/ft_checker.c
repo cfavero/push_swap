@@ -42,8 +42,6 @@ int		ft_errors(t_lst *a, int len)
 	return (0);
 }
 
-// checks values are ints
-// NEED TO BE ABLE TO TAKE STRINGS
 int		ft_are_int(int ac, char **av)
 {
 	int i;
@@ -118,11 +116,8 @@ int			ft_take_com(char *com, t_all *data)
 			y++;
 		}
 		data->tab_f[y].f(&data->lst_a, &data->lst_b);
-		//ft_print_stack(data->lst_a);
-		//ft_printf("%d\n", y);
+		ft_print_stack(data->lst_a);
 	}
-	//ft_printf("----%s\n%d\n", com, get_next_line(0, &com));
-	ft_print_stack(data->lst_a);
 	return (0);
 }
 

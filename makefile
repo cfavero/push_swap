@@ -6,7 +6,7 @@
 #    By: cfavero <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 15:32:33 by cfavero           #+#    #+#              #
-#    Updated: 2018/04/28 17:05:25 by cfavero          ###   ########.fr        #
+#    Updated: 2018/04/30 17:33:13 by cfavero          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,14 +45,14 @@ all: $(NAME)
 $(NAME):
 	@make -C ./printf
 	@gcc -I $(FILEH) -o $(NAME2) $(C-SOURCES) ./printf/libftprintf.a
-	@gcc -I $(FILEH) -o $(NAME) $(P-SOURCES) ./printf/libftprintf.a
+	@gcc -g3 -I $(FILEH) -o $(NAME) $(P-SOURCES) ./printf/libftprintf.a
 	@make clean
 
 clean:
 	@make clean -C ./printf
 
 fclean: clean
-	@make fclean -C ./printf
+#	@make fclean -C ./printf
 	@/bin/rm -f $(NAME) $(NAME2) ./printf/libftprintf.a
 
 re: fclean all

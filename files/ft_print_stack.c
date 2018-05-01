@@ -21,11 +21,11 @@ void	ft_print_stack(t_lst *lst)
 	tmp = lst->prev;
 	while (lst != tmp)
 	{
-		ft_printf("%d\n", (lst)->exval);
+		ft_printf("%d--%d\n", (lst)->exval, lst->val);
 		(lst) = (lst)->next;
 	}
 	if (tmp)
-		ft_printf("%d\n------\n", (lst)->exval);
+		ft_printf("%d--%d\n------\n", (lst)->exval, lst->val);
 }
 
 void	ft_print_moves(t_moves *lst)

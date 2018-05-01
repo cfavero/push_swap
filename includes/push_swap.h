@@ -27,7 +27,6 @@
 # define RRR data->tab_f[10].f(&data->lst_a, &data->lst_b)
 # define AA data->lst_a->val
 # define AB data->lst_a->next->val
-# define AC data->lst_a->next->next->val
 # define AZ data->lst_a->prev->val
 # define BA data->lst_b->val
 # define BB data->lst_b->next->val
@@ -67,6 +66,7 @@ typedef struct		s_all
 	t_tab			*tab_f;
 }					t_all;
 
+void				ft_free_moves(t_moves *lst);
 int					ft_take_com(char *com, t_all *data);
 void				ft_print_moves(t_moves *lst);
 void				ft_lstadd_end(t_moves **alst, t_moves *new, char *s);

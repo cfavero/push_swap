@@ -37,7 +37,7 @@ int					ft_fill(int ac, char **av, t_all **data)
 		{"rr", ft_r_r}, {"rra", ft_rr_a}, {"rrb", ft_rr_b}, {"rrr", ft_rr_r},
 		{NULL, NULL}};
 
-	if (!(*data = malloc(sizeof(**data))))
+	if (!(*data = (t_all*)malloc(sizeof(t_all))))
 		return (-1);
 	(*data)->lst_a = NULL;
 	(*data)->lst_b = NULL;
