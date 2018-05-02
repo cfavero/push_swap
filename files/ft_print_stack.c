@@ -28,7 +28,7 @@ void	ft_print_stack(t_lst *lst)
 		ft_printf("%d--%d\n------\n", (lst)->exval, lst->val);
 }
 
-void	ft_print_moves(t_moves *lst)
+/*void	ft_print_moves(t_moves *lst)
 {
 	t_moves *tmp;
 
@@ -41,4 +41,4 @@ void	ft_print_moves(t_moves *lst)
 		tmp = tmp->next;
 	}
 	ft_putstr(tmp->move);
-}
+}*/

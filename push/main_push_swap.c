@@ -32,10 +32,12 @@ int	main(int ac, char **av)
 //	if (ft_checker(ac, av, data) != 1)
 //		return (-1);
 //	ft_try_a(data, ac / 2);
-//	ft_print_stack(data->lst_a);
+	// ft_print_stack(data->lst_a);
 	ft_quicksort(data);
-	ft_printf("-----------\n");
-	ft_print_moves(data->lst_move);
+	ft_printf("");
+	//ft_print_moves(data->lst_move);
+	//data->lst_move = ft_cleaning_lst(data, data->lst_move);
+	// ft_print_moves(data->lst_move);
 	//ft_free_moves(data->lst_move);
 //	ft_print_stack(data->lst_a);
 	//ft_printf("-----------\n");s

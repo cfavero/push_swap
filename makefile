@@ -25,7 +25,7 @@ C-SOURCES = files/ft_get_list.c\
 			moves/ft_push.c\
 			moves/ft_rotate.c\
 			moves/ft_swap.c\
-			files/lst_moves.c
+			# files/lst_moves.c
 
 P-SOURCES = files/ft_get_list.c\
 			files/ft_print_stack.c \
@@ -38,7 +38,7 @@ P-SOURCES = files/ft_get_list.c\
 			moves/ft_swap.c\
 			push/main_push_swap.c\
 			push/algorithm.c\
-			files/lst_moves.c
+			# files/lst_moves.c
 			
 all: $(NAME)
 
